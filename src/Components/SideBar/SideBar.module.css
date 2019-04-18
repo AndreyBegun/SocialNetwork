@@ -1,0 +1,13 @@
+.sideBar {
+    width: 200px;
+    background-color: limegreen;
+    border: 3px solid deeppink;
+}
+
+.sidebarBlock{
+    margin: 0 auto;
+
+}
+.item {
+    color: white;
+}

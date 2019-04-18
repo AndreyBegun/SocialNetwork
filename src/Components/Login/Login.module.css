@@ -1,0 +1,24 @@
+.loginPanel {
+    height: 200px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 3px solid deeppink;
+}
+
+.loginInputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.loginRegistration {
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.loginRegistration input {
+    background-color: limegreen;
+}
