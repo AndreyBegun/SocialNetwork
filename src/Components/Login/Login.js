@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Login.module.css';
 import {connect} from "react-redux";
 import {login} from "../../Reducers-BLL/LoginReducer";
-import {statuses} from "../Friends/FriendsReducer";
+import {statuses} from "../../Reducers-BLL/FriendsReducer";
 import {Redirect} from "react-router-dom";
 
 export const Login = ({status, login, message, isAuth}) => {

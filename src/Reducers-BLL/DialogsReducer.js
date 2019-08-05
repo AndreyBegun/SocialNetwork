@@ -37,7 +37,11 @@ let initialStateForDialog = {
 
 
 const DialogsReducer = (state = initialStateForDialog, action) => {
-    let copyState = {...state};
+    let copyState = {
+        ...state,
+        dialogMessage: [...state.dialogMessage]
+    };
+    
 
     switch (action.type) {
         case 'ADD_MESSAGE_DIALOGS':

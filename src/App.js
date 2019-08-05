@@ -10,9 +10,10 @@ import CatalogPageContainer from "./Components/Dialogs/DialogPageContaier";
 import ProfilePageContainer from "./Components/Profile/ProfilePageContaier";
 import FriendsContainer from "./Components/Friends/FriendsContainer";
 
-import store from "./index";
 import {Provider} from "react-redux";
 import HeaderContainer from "./Components/Header/HeaderContainer";
+import UsersContainer from './Components/Users/UsersContainer';
+import store from './Reducers-BLL/redux-store';
 
 const App = (props) => {
 
@@ -31,6 +32,8 @@ const App = (props) => {
                     <Route path='/music' render={() => <MusicPage/>}/>
                     <Route path='/settings' render={() => <SettingsPage/>}/>
                     <Route path='/friends' render={() => <FriendsContainer/>}/>
+                    <Route path='/user/:userId' render={() => <ProfilePageContainer/>}/>
+                    <Route path='/users' render={()=> <UsersContainer/>}/>
                 </div>
             </div>
         </BrowserRouter>

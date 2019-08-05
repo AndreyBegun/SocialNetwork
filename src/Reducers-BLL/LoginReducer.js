@@ -1,5 +1,5 @@
-import axios from './../dal/axios-instance';
-import {me, setIsAuth} from "./AuthReduser";
+import axios from '../DAL/axios-instance';
+import {me, setIsAuth} from "./AuthReducer";
 
 
 const SET_STATUS = 'App/Login/SET_STATUS';

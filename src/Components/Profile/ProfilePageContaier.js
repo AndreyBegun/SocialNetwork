@@ -1,19 +1,37 @@
-
+import React from 'react';
 import {connect} from 'react-redux';
-import ProfilePage from "./ProfilePage";
+import ProfilePage from './ProfilePage';
+import axios from './../../DAL/axios-instance';
+import { setUserProfileAC } from './../../Reducers-BLL/ProfileReducer';
 
+class ProfilePageContainer extends React.Component {
 
-let mapStateToProps = (state) => {
-    return {
-        profilePage: state.profilePage
+    componentDidMount() {
+       
+       
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/1047`)
+            .then(response =>{
+                
+                this.props.setUserProfileAC(response.data);
+            })
     }
-};
+    render() {
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-
+        return(
+            <ProfilePage profiles={this.props.profiles} {...this.props} />
+        )
     }
-};
+}
 
-let ProfilePageContainer = connect(mapStateToProps,mapDispatchToProps)(ProfilePage);
-export default ProfilePageContainer
+
+let mapStateToProps = (state) => ({
+    
+        profiles: state.profilePage.profiles
+
+    
+});
+
+
+
+export default connect(mapStateToProps, {setUserProfileAC})(ProfilePageContainer);
+ 

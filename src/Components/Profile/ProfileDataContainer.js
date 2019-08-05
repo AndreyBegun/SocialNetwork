@@ -1,7 +1,13 @@
-
+import React from 'react'
 import {connect} from 'react-redux';
 import ProfileData from "./ProfileData";
 
+class ProfileDataContainer extends React.Component {
+    
+    render() {
+      return <ProfileData {...this.props}/>
+    }
+  }
 
 let mapStateToProps = (state) => {
 
@@ -13,5 +19,6 @@ let mapDispatchToProps = (dispatch) => {
     return{}
 };
 
-let ProfileDataContainer = connect(mapStateToProps, mapDispatchToProps)(ProfileData);
-export default ProfileDataContainer
+
+export default  connect(mapStateToProps, mapDispatchToProps)(ProfileDataContainer);
+ 

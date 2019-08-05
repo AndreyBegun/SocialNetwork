@@ -1,53 +1,67 @@
+const ADD_MESSAGE_POSTS = "ADD_MESSAGE_POSTS";
+const CHANGE_CURRENT_POST_MESSAGE = "CHANGE_CURRENT_POST_MESSAGE";
+const SET_USER_PROFILE = "SET_USER_PROFILE";
 
 let initialStateForProfiles = {
+  currentPostMessValue: "",
 
-    currentPostMessValue: '',
-
-    posts: [
-        {
-            id: 1,
-            urlAvaPhoto: 'https://i.ytimg.com/vi/ToNcTEAEUqo/maxresdefault.jpg',
-            message: 'Hi, how are you?',
-            likesCount: '12'
-        },
-        {
-            id: 2,
-            urlAvaPhoto: 'https://i.ytimg.com/vi/ToNcTEAEUqo/maxresdefault.jpg',
-            message: 'It\'s my first post',
-            likesCount: '23'
-        }
-    ],
-    profiles: {
-        userName: 'Andruha',
-        birthDay: '12.08.1984',
-        city: 'Minsck',
-        aducation: 'higher',
-        webSite: 'drunya35@gmail.com'
+  posts: [
+    {
+      id: 1,
+      urlAvaPhoto: "https://i.ytimg.com/vi/ToNcTEAEUqo/maxresdefault.jpg",
+      message: "Hi, how are you?",
+      likesCount: "12"
     },
-}
-
+    {
+      id: 2,
+      urlAvaPhoto: "https://i.ytimg.com/vi/ToNcTEAEUqo/maxresdefault.jpg",
+      message: "It's my first post",
+      likesCount: "23"
+    }
+  ],
+  profiles: {
+    photos: {},
+    lookingForAJob:'',
+    aboutMe:'',
+    lookingForAJobDescription:'',
+    userId:'',
+    fullName: "Andruha",
+    
+  },
+  
+};
 
 const ProfileReducer = (state = initialStateForProfiles, action) => {
-    let copyState = {...state}
+//   let copyState = { ...state };
 
-    switch (action.type) {
-        case 'ADD_MESSAGE_POSTS':
+  switch (action.type) {
+    case ADD_MESSAGE_POSTS:
+        
+        let newState = {...state}
 
-            copyState.posts.unshift({
-                message: copyState.currentPostMessValue,
-                urlAvaPhoto: 'https://i.ytimg.com/vi/ToNcTEAEUqo/maxresdefault.jpg',
-                likesCount: 0
-            });
-            copyState.currentPostMessValue = '';
-            return copyState;
+        newState.posts.unshift({
+        message: newState.currentPostMessValue,
+        urlAvaPhoto: "https://i.ytimg.com/vi/ToNcTEAEUqo/maxresdefault.jpg",
+        likesCount: 0
+      });
+      newState.currentPostMessValue = "";
+      return newState;
 
+    case CHANGE_CURRENT_POST_MESSAGE:
+      return {...state, currentPostMessValue: action.postMessage};
 
-        case 'CHANGE_CURRENT_POST_MESSAGE':
+    case SET_USER_PROFILE:
+      
+      return { ...state, profiles: action.profiles };
 
-            copyState.currentPostMessValue = action.postMessage;
-            return copyState;
-        default:
-            return state;
-    }
-}
+    default:
+      return state;
+  }
+};
+
+export const setUserProfileAC = profiles => ({
+  type: SET_USER_PROFILE,
+  profiles
+});
+
 export default ProfileReducer;

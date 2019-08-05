@@ -22,10 +22,13 @@ const SideBar = () => {
                 <NavLink to='settings'>Настройки</NavLink>
             </div>
             <div className={s.item}>
-                <NavLink to='/login'>Логин</NavLink>
+                <NavLink to='/login'>Авторизация</NavLink>
             </div>
             <div className={s.item}>
                 <NavLink to='/friends'>IT-KAMASUTRA</NavLink>
+            </div>
+            <div className={s.item}>
+                <NavLink to='/users'>Users</NavLink>
             </div>
         </div>
     );
