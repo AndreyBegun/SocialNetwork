@@ -1,4 +1,6 @@
 import axios from "../DAL/axios-instance";
+import instence from "../DAL/axios-instance";
+import { authApi } from "../DAL/api";
 
 const SET_IS_AUTH = 'App/AUTH/SET_IS_AUTH';
 const SET_USER_INFO = 'App/AUTH/SET_USER_INFO';
@@ -17,7 +19,7 @@ export const setUserInfo = (userId, userName) => ({ type: SET_USER_INFO, userId,
 
 export const me = () => (dispatch) => {
 
-    axios.get('auth/me')
+    authApi.me()
         .then(res => {
             if (res.data.resultCode === 0) {
                 dispatch(setIsAuth(true))
@@ -29,7 +31,7 @@ export const me = () => (dispatch) => {
 
 export const logOut = () => (dispatch) => {
 
-    axios.post('auth/logout')
+    authApi.logout()
         .then(res => {
             if (res.data.resultCode === 0) {
                 dispatch(setIsAuth(false))

@@ -1,5 +1,6 @@
-import instence from '../DAL/axios-instance';
+
 import {me, setIsAuth} from "./AuthReducer";
+import { authApi } from '../DAL/api';
 
 
 const SET_STATUS = 'App/Login/SET_STATUS';
@@ -28,22 +29,19 @@ export const login = (email, password, rememberMe, captcha) => (dispatch) => {
 
     dispatch(setStatus(statuses.INPROGRESS));
 
-    instence.post('auth/login', {
-        email: email,
-        password: password,
-        rememberMe: rememberMe
-    }).then(res => {
-       if(res.data.resultCode === 0){
-           dispatch(setStatus(statuses.SUCCESS));
-           dispatch(setIsAuth(true));
-           dispatch(me());
+    authApi.login(email, password, rememberMe)
+        .then(res => {
+            if (res.data.resultCode === 0) {
+                dispatch(setStatus(statuses.SUCCESS));
+                dispatch(setIsAuth(true));
+                dispatch(me());
 
-       } else {
-           dispatch(setStatus(statuses.ERROR));
-           dispatch(setMessage(res.data.messages[0]));
+            } else {
+                dispatch(setStatus(statuses.ERROR));
+                dispatch(setMessage(res.data.messages[0]));
 
-       }
-    });
+            }
+        });
 
 }
 

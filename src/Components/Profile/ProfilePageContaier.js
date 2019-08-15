@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ProfilePage from './ProfilePage';
 import { setUserProfileAC } from './../../Reducers-BLL/ProfileReducer';
 import { withRouter } from 'react-router-dom';
-import { profileApi } from '../../DAL/api';
+import { usersApi } from '../../DAL/api';
 
 
 class ProfilePageContainer extends React.Component {
@@ -13,10 +13,11 @@ class ProfilePageContainer extends React.Component {
         let userId = this.props.match.params.userId;
         if (!userId) { userId = 1047 };
         
-        profileApi.getProfile(userId).then(response => {
+        usersApi.getProfile(userId).then(response => {
             this.props.setUserProfileAC(response.data);
         });
     }
+    
     render() {
         return (
             <ProfilePage {...this.props} profiles={this.props.profiles} />

@@ -19,14 +19,14 @@ const Friends = (props) => {
         return <div>Users not found</div>
     }
 
-    return <div> {props.users.map(user => <div>
-    
-            <NavLink to={`/profile/${user.id}`}> 
-            <img alt='' src={user.photos.small == null ? 'https:/via.placeholder.com/100' : user.photos.small}/>
+    return <div> {props.users.map(user => <div key={user.id}>
+
+        <NavLink to={`/profile/${user.id}`}>
+            <img alt='' src={user.photos.small == null ? 'https:/via.placeholder.com/100' : user.photos.small} />
             <span>{user.name}</span>
             <div>{user.status ? user.status : ' No status'}</div>
-            </NavLink>
-        </div>
+        </NavLink>
+    </div>
     )
     }
     </div>

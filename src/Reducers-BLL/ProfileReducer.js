@@ -32,7 +32,6 @@ let initialStateForProfiles = {
 };
 
 const ProfileReducer = (state = initialStateForProfiles, action) => {
-//   let copyState = { ...state };
 
   switch (action.type) {
     case ADD_MESSAGE_POSTS:
