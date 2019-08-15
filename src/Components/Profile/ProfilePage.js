@@ -1,11 +1,11 @@
 import React from "react";
 import s from "./Profile.module.css";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
-
+import userPhoto from "../../assets//images/user-search.png";
 import ProfileDataContainer from "./ProfileDataContainer";
 
 const ProfilePage = (props) => {
-  
+ 
   return (
     <div className={s.profilePage}>
       <div>
@@ -18,8 +18,8 @@ const ProfilePage = (props) => {
 
       <div className={s.userData}>
         <div>
-          <img
-            src= {props.profiles.photos.large}                    //"https://i.ytimg.com/vi/ToNcTEAEUqo/maxresdefault.jpg"
+        <img                        //"https://i.ytimg.com/vi/ToNcTEAEUqo/maxresdefault.jpg"
+            src= {props.profiles.photos.large !== null ? props.profiles.photos.small : userPhoto}                   
             className={s.avatar}
             alt=""
           />

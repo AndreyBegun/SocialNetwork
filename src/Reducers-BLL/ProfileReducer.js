@@ -25,7 +25,7 @@ let initialStateForProfiles = {
     aboutMe:'',
     lookingForAJobDescription:'',
     userId:'',
-    fullName: "Andruha",
+    fullName: '',
     
   },
   

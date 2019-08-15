@@ -6,30 +6,23 @@ const SideBar = () => {
 
     return (
         <div className={s.sideBar}>
-            <div className={s.item}>
-                <NavLink to='/'> Профиль</NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to='/dialogs'> Сообщения</NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to='/news'>Новости</NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to='/music'>Музыка</NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to='settings'>Настройки</NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to='/login'>Авторизация</NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to='/friends'>IT-KAMASUTRA</NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to='/users'>Users</NavLink>
-            </div>
+           
+                <NavLink to='/' className={s.item} exact activeClassName={s.active}> Профиль</NavLink>
+            
+                <NavLink to='/dialogs' className={s.item} activeClassName={s.active}> Сообщения</NavLink>
+            
+                <NavLink to='/news' className={s.item} activeClassName={s.active}>Новости</NavLink>
+            
+                <NavLink to='/music' className={s.item} activeClassName={s.active}>Музыка</NavLink>
+            
+                <NavLink to='/settings' className={s.item} activeClassName={s.active}>Настройки</NavLink>
+            
+                <NavLink to='/login' className={s.item} activeClassName={s.active}>Авторизация</NavLink>
+         
+                <NavLink to='/friends' className={s.item} activeClassName={s.active}>IT-KAMASUTRA</NavLink>
+            
+                <NavLink to='/users' className={s.item} activeClassName={s.active}>Users</NavLink>
+            
         </div>
     );
 }

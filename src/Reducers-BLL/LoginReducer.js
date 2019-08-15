@@ -1,4 +1,4 @@
-import axios from '../DAL/axios-instance';
+import instence from '../DAL/axios-instance';
 import {me, setIsAuth} from "./AuthReducer";
 
 
@@ -28,7 +28,7 @@ export const login = (email, password, rememberMe, captcha) => (dispatch) => {
 
     dispatch(setStatus(statuses.INPROGRESS));
 
-    axios.post('auth/login', {
+    instence.post('auth/login', {
         email: email,
         password: password,
         rememberMe: rememberMe

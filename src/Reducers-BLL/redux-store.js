@@ -8,16 +8,16 @@ import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk from 'redux-thunk';
 
 
-const reducers = combineReducers({
+const reducer = combineReducers({
     dialogPage: DialogsReducer,
     profilePage: ProfileReducer,
     friends: FriendsReducer,
     login: loginReducer,
-    auth: AuthReducer,
+    auth: AuthReducer, 
     usersPage: UsersReducer
 });
 
-const store = createStore(reducers, applyMiddleware(thunk));
+const store = createStore(reducer, applyMiddleware(thunk));
 
  window.store = store; //для обращения к стору в консоли
 

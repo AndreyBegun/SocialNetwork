@@ -12,8 +12,8 @@ let initialState = {
     }
 }
 
-export const setIsAuth = (value) => ({type: SET_IS_AUTH, value});
-export const setUserInfo = (userId, userName) => ({type: SET_USER_INFO, userId, userName});
+export const setIsAuth = (value) => ({ type: SET_IS_AUTH, value });
+export const setUserInfo = (userId, userName) => ({ type: SET_USER_INFO, userId, userName });
 
 export const me = () => (dispatch) => {
 
@@ -28,7 +28,6 @@ export const me = () => (dispatch) => {
 };
 
 export const logOut = () => (dispatch) => {
-
 
     axios.post('auth/logout')
         .then(res => {
@@ -60,9 +59,8 @@ const AuthReducer = (state = initialState, action) => {
             }
         }
 
-        default: {
-            return state
-        }
+        default: return state;
+        
     }
 };
 
