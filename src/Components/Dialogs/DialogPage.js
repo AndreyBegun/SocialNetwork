@@ -1,8 +1,7 @@
 import React from 'react';
 import s from './Dialogs.module.css';
-import {NavLink} from "react-router-dom";
-import FriendsContainer from "../Friends/FriendsContainer";
-
+import {NavLink} from 'react-router-dom';
+import FriendsContainer from '../Friends/FriendsContainer';
 
 const DialogItem = (props) => {
     let path = '/dialogs/' + props.id;
@@ -26,12 +25,6 @@ const DialogPage = (props) => {
             <div className={s.dialogItems}>
                 {
                     <FriendsContainer/>
-
-                    // props.dialogsPage.dialogsItem.map((el, i) => {
-                    //     return (
-                    //         <DialogItem key={i} name={el.name} id={el.id}/>
-                    //     )
-                    // })
                 }
             </div>
             <div className={s.mesages}>

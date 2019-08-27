@@ -5,6 +5,7 @@ import userPhoto from "../../assets//images/user-search.png";
 import ProfileDataContainer from "./ProfileDataContainer";
 
 const ProfilePage = (props) => {
+  
  
   return (
     <div className={s.profilePage}>

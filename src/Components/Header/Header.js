@@ -12,6 +12,7 @@ const Header = ({isAuth, userInfo, logOut}) => {
         <div className={s.header}>
 
                 <img src='https://cdn.auth0.com/blog/react-redux/logo.png' alt=''/>
+               
 
             {isAuth && <div> {userInfo.userName} - <span onClick={onLogOutClick}>Log out</span> </div>}
             {!isAuth && <div> <NavLink to='/login'>Sign In</NavLink> </div>}

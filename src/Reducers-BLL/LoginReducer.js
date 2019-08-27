@@ -1,5 +1,5 @@
 
-import {me, setIsAuth} from "./AuthReducer";
+import {getAuthUserData, setIsAuth} from "./AuthReducer";
 import { authApi } from '../DAL/api';
 
 
@@ -34,7 +34,7 @@ export const login = (email, password, rememberMe, captcha) => (dispatch) => {
             if (res.data.resultCode === 0) {
                 dispatch(setStatus(statuses.SUCCESS));
                 dispatch(setIsAuth(true));
-                dispatch(me());
+                dispatch(getAuthUserData());
 
             } else {
                 dispatch(setStatus(statuses.ERROR));

@@ -1,11 +1,14 @@
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import DialogPage from "./DialogPage";
-import {addMessageDialogAction, changeCurrentDialogAction} from "../../Reducers-BLL/DialogsReducer";
+import { addMessageDialogAction, changeCurrentDialogAction } from "../../Reducers-BLL/DialogsReducer";
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 let mapStateToProps = (state) => {
     return {
-        dialogsPage: state.dialogPage
+        dialogsPage: state.dialogPage,
+        isAuth: state.auth.isAuth
+
     }
 };
 
@@ -21,5 +24,7 @@ let mapDispatchToProps = (dispatch) => {
     }
 };
 
-let CatalogPageContainer = connect(mapStateToProps, mapDispatchToProps)(DialogPage);
+let AuthRedirectComponent = withAuthRedirect(DialogPage)  //hoc
+
+let CatalogPageContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
 export default CatalogPageContainer
