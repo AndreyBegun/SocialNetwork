@@ -9,6 +9,7 @@ import {
 } from "./../../Reducers-BLL/UsersReducer";
 import Users from "./Users";
 import Preloader from './../Common/Preloader/Preloader';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 
 
@@ -54,6 +55,7 @@ let mapStateToProps = (state) => {
     followingInProgress: state.usersPage.followingInProgress
   };
 };
+let withRedirect = withAuthRedirect(UsersContainer) //hoc
 
 export default connect(mapStateToProps, {
   follow,
@@ -61,4 +63,4 @@ export default connect(mapStateToProps, {
   toggleFollowingProgress,
   setCurrentPage,
   getUsers
-})(UsersContainer);
+})(withRedirect);
