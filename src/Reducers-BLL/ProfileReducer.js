@@ -1,3 +1,5 @@
+import { usersApi } from '../DAL/api';
+
 const ADD_MESSAGE_POSTS = "ADD_MESSAGE_POSTS";
 const CHANGE_CURRENT_POST_MESSAGE = "CHANGE_CURRENT_POST_MESSAGE";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
@@ -58,9 +60,16 @@ const ProfileReducer = (state = initialStateForProfiles, action) => {
   }
 };
 
-export const setUserProfileAC = profiles => ({
+export const setUserProfileAC = (profiles) => ({
   type: SET_USER_PROFILE,
   profiles
 });
+
+export const getUsersProfile = (userId) => (dispatch) => {
+  usersApi.getProfile(userId).then(response => {
+    dispatch(setUserProfileAC(response.data));
+});
+}
+
 
 export default ProfileReducer;
