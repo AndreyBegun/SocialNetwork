@@ -4,7 +4,6 @@ import Music from "./Music";
 
 const MusicPage = () => {
     return (
-
         <Music/>
     );
 }
