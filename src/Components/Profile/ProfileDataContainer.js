@@ -10,15 +10,12 @@ class ProfileDataContainer extends React.Component {
   }
 
 let mapStateToProps = (state) => {
-
     return {
         profileData: state.profilePage.profiles
     }
 };
-let mapDispatchToProps = (dispatch) => {
-    return{}
-};
 
 
-export default  connect(mapStateToProps, mapDispatchToProps)(ProfileDataContainer);
+
+export default  connect(mapStateToProps)(ProfileDataContainer);
  

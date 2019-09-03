@@ -3,9 +3,10 @@ import s from "./Profile.module.css";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import userPhoto from "../../assets//images/user-search.png";
 import ProfileDataContainer from "./ProfileDataContainer";
+import ProfileStatus from "./ProfileStatus";
 
 const ProfilePage = (props) => {
-  
+ 
  
   return (
     <div className={s.profilePage}>
@@ -24,6 +25,7 @@ const ProfilePage = (props) => {
             className={s.avatar}
             alt=""
           />
+          <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
         </div>
 
         <ProfileDataContainer />

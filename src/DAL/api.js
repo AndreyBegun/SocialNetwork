@@ -17,12 +17,26 @@ export const usersApi = {
   unfollow(userId) {
     return instence.delete(`follow/${userId}`)                 
     },
-  getProfile(userId) {
-      return instence.get(`profile/${userId}`)
+    getProfile(userId) {
+      console.warn('Obsolete method. Please pfileApi object.')
+      return profileApi.getProfile(userId)
       
     }
+ 
 }
 
+export const profileApi = {
+  getProfile(userId) {
+    return instence.get(`profile/${userId}`)
+  },
+  getStatus(userId) {
+    return instence.get(`profile/status/${userId}`)
+  },
+  updateStatus(status){
+    return instence.put(`profile/status`, {status: status})
+  }
+
+}
 export const authApi = {
 
   login(email, password, rememberMe) {
