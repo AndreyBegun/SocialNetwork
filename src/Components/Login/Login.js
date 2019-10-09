@@ -56,6 +56,7 @@ export const Login = ({status, login, message, isAuth}) => {
     );
 }
 
+
 let mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
     status: state.login.status,
