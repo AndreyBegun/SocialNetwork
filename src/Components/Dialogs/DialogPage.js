@@ -1,44 +1,37 @@
 import React from 'react';
 import s from './Dialogs.module.css';
-import {NavLink} from 'react-router-dom';
 import FriendsContainer from '../Friends/FriendsContainer';
+import { Field, reduxForm } from 'redux-form'
 
-// const DialogItem = (props) => {
-//     let path = '/dialogs/' + props.id;
-//     return (
-//         <div className={s.dialogs + ' ' + s.active}>
-//             <NavLink to={path}>{props.name}</NavLink>
-//         </div>
-//     )
-// }
+
 
 const Message = (props) => {
     return (
-        <div><img src={props.src} alt=''/>{props.message}</div>
+        <div><img src={props.src} alt='' />{props.message}</div>
     )
 }
 
 const DialogPage = (props) => {
 
+    let addNewMessage = (values) => {
+        props.addMessageDialog(values.newMessageBody)
+
+    }
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogItems}>
-                {
-                    <FriendsContainer/>
-                }
+
+                <FriendsContainer />
+
             </div>
             <div className={s.mesages}>
-                <div>
-                    <textarea value={props.dialogsPage.currentDialogMessValue}
-                              onChange={(e) => props.changeCurrentDialog(e)}>
-                    </textarea>
-                    <button onClick={() => props.addMessageDialog(props.dialogsPage.currentDialogMessValue)}>Добавить сообщение
-                    </button>
-                </div>
+                <AddMessageFormRedux onSubmit={addNewMessage} />
+
                 {
                     props.dialogsPage.dialogMessage.map((el, i) => {
                         return (
-                            <Message key={i} message={el.message} src={el.urlFoto}/>
+                            <Message key={i} message={el.message} src={el.urlFoto} />
                         )
                     })
                 }
@@ -46,6 +39,13 @@ const DialogPage = (props) => {
         </div>
     );
 }
-
-
+const AddMessageForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <Field component='textarea' name='newMessageBody' placeholder='Enter your message' />
+            <button >Добавить сообщение</button>
+        </form>
+    )
+}
+const AddMessageFormRedux = reduxForm({ form: 'dialogAddMessageForm' })(AddMessageForm)
 export default DialogPage;

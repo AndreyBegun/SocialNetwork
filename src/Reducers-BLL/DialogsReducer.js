@@ -1,5 +1,4 @@
 
-
 let initialStateForDialog = {
     currentDialogMessValue: '',
     dialogsItem: [
@@ -34,14 +33,17 @@ let initialStateForDialog = {
         }
     ]
 }
-
-
+export const addMessageDialogAction = (newMessageBody) => {
+    return {
+        type: 'ADD_MESSAGE_DIALOGS',
+        message: newMessageBody
+    }
+}
 const DialogsReducer = (state = initialStateForDialog, action) => {
     let copyState = {
         ...state,
         dialogMessage: [...state.dialogMessage]
     };
-    
 
     switch (action.type) {
         case 'ADD_MESSAGE_DIALOGS':
@@ -50,33 +52,11 @@ const DialogsReducer = (state = initialStateForDialog, action) => {
                 message: action.message,
                 urlFoto: 'https://i.ytimg.com/vi/ToNcTEAEUqo/maxresdefault.jpg'
             });
-            copyState.currentDialogMessValue = '';
-            return copyState;
-
-        case 'CHANGE_CURRENT_DIALOG_MESSAGE':
-
-            copyState.currentDialogMessValue = action.dialogMessage;
-
             return copyState;
         default:
             return state;
-
-
     }
 }
-
 export default DialogsReducer;
 
-export const changeCurrentDialogAction = (dialogMessage) => {
-    return {
-        type: 'CHANGE_CURRENT_DIALOG_MESSAGE',
-        dialogMessage: dialogMessage
-    }
-}
 
-export const addMessageDialogAction = (message) => {
-    return {
-        type: 'ADD_MESSAGE_DIALOGS',
-        message: message
-    }
-}
